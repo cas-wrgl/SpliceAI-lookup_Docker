@@ -20,7 +20,7 @@ jobs:
     
     - name: Install Python dependencies
       run: |
-        pip3 install pandas requests numpy unittest
+        pip3 install pandas requests numpy
     
     - name: Run tests
       run: |
