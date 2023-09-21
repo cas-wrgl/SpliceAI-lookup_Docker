@@ -10,7 +10,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Download dataset from Google Drive
+    - name: Download dataset from Google Drive 
       run: |
         FILE_ID="1O6xPLOt7o7G5K1P-GZPA5MC1wDVwN691"
         curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=$FILE_ID" > /dev/null
