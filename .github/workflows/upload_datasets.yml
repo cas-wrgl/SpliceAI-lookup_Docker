@@ -4,23 +4,17 @@ on: [push]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # Using your self-hosted runner
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install and Use gdown to Download dataset from Google Drive
+    - name: Run Docker container
       run: |
-        pip install gdown
-        gdown "https://drive.google.com/uc?export=download&id=1O6xPLOt7o7G5K1P-GZPA5MC1wDVwN691" -O references_files.zip
-        unzip references_files.zip -d /tmp/datasets
-
-    - name: Pull and run Docker container
-      run: |
-        docker pull monkiky/spliceai-lookup-local:v1.0
-        docker run -d -v /tmp/datasets:/Users/jocotton/Desktop/references_files -p 8080:8080 monkiky/spliceai-lookup-local
+        docker run -d -v /Users/jocotton/Desktop/references_files:/Users/jocotton/Desktop/references_files -p 8080:8080 monkiky/spliceai-lookup-local
 
     - name: Run tests
       run: |
         python3 ./TestingDocker.py spliceai_controlBABY.csv
+
