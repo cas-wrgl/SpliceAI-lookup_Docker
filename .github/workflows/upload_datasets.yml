@@ -10,12 +10,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Download dataset from Google Drive using gdown
+    - name: Install and Use gdown to Download dataset from Google Drive
       run: |
         pip install gdown
         gdown "https://drive.google.com/uc?export=download&id=1O6xPLOt7o7G5K1P-GZPA5MC1wDVwN691" -O references_files.zip
         unzip references_files.zip -d /tmp/datasets
-
 
     - name: Pull and run Docker container
       run: |
