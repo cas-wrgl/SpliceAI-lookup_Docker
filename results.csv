@@ -1,0 +1,2 @@
+Chr,Pos,Ref,Alt,DS_AG-CONTROL,DS_AL-CONTROL,DS_DG-CONTROL,DS_DL-CONTROL,DP_AG-CONTROL,DP_AL-CONTROL,DP_DG-CONTROL,DP_DL-CONTROL,DS_AG,DS_AL,DS_DG,DS_DL,DP_AG,DP_AL,DP_DG,DP_DL,Comparison_DS_AG,Comparison_DS_AL,Comparison_DS_DG,Comparison_DS_DL,Comparison_AG,Comparison_AL,Comparison_DG,Comparison_DL
+15,48752443,C,T,0.0,0.0,0.01,0.91,,,4,0,0.0,0.0,0.01,0.91,,,4.0,0.0,True,True,True,True,True,True,True,True

@@ -42,10 +42,10 @@ The details will vary depending on your OS, etc. If you run into issues, please 
 to the [issue tracker](https://github.com/broadinstitute/SpliceAI-lookup/issues).
 
 1. Install pytorch as described in the [Pangolin installation docs](https://github.com/tkzeng/Pangolin#installation)
-1. Install the modified versions of SpliceAI and Pangolin from [https://github.com/bw2/SpliceAI](https://github.com/bw2/SpliceAI) and [https://github.com/bw2/Pangolin](https://github.com/bw2/Pangolin)
 1. Install and start a [redis](https://redis.io/) server. It's used to cache previously computed API server responses so that they don't have to be computed again.
 1. Download reference fasta files: [hg19.fa](https://storage.cloud.google.com/gcp-public-data--broad-references/hg19/v0/Homo_sapiens_assembly19.fasta) and [hg38.fa](https://storage.cloud.google.com/gcp-public-data--broad-references/hg38/v0/Homo_sapiens_assembly38.fasta)
-1. Download [annotation files](https://spliceailookup-api.broadinstitute.org/annotations) into your local ./annotations directory, or generate them yourself using the steps in the [annotations README](https://github.com/broadinstitute/SpliceAI-lookup/blob/master/annotations/README.md).
+1. Download [annotation files](https://spliceailookup-api.broadinstitute.org/annotations) into your local ./annotations directory.
+1. Optionally download pre-computed scores .vcf.gz and .vcf.gz.tbi files from [Illumina Basespace](https://basespace.illumina.com/s/otSPW8hnhaZR)   
 1. Start a SpliceAI API server on localhost port 8080. To modify server options, edit the `start_local_server.sh` script:
 
 ```
@@ -56,10 +56,4 @@ $ ./start_local_server.sh
 ```
 
 The server uses ~1.5 Gb RAM per server thread.
-
----
-#### For Developers
-
-The front-end of the [spliceailookup.broadinstitute.org](https://spliceailookup.broadinstitute.org) is in [index.html](index.html) and uses ES6 javascript, along with the jQuery, Semantic UI libraries. Also, it uses a [custom version of igv.js](https://github.com/bw2/igv.js) with some extra track types not (yet?) available in the official igv.js repo. The server-side code is in [server.py](server.py) and based around the Flask library. 
-
 
