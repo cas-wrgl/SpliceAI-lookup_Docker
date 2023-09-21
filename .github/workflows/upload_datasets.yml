@@ -12,7 +12,7 @@ jobs:
 
     - name: Run Docker container
       run: |
-        docker run -v /Users/jocotton/Desktop/references_files:/Users/jocotton/Desktop/references_files -p 8080:8080 -it spliceailookup_local
+        docker run -v /Users/jocotton/Desktop/references_files:/Users/jocotton/Desktop/references_files -p 8080:8080 spliceailookup_local
 
     - name: Run tests
       run: |
