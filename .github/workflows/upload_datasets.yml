@@ -12,8 +12,9 @@ jobs:
 
     - name: Download dataset from Google Drive
       run: |
-        curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=1O6xPLOt7o7G5K1P-GZPA5MC1wDVwN691" > /dev/null
-        curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=YOUR_FILE_ID" -o references_files.zip
+        FILE_ID="1O6xPLOt7o7G5K1P-GZPA5MC1wDVwN691"
+        curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=$FILE_ID" > /dev/null
+        curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=$FILE_ID" -o references_files.zip
         unzip references_files.zip -d /tmp/datasets
 
     - name: Pull and run Docker container
@@ -24,4 +25,3 @@ jobs:
     - name: Run tests
       run: |
         python3 ./TestingDocker.py spliceai_controlBABY.csv
-
