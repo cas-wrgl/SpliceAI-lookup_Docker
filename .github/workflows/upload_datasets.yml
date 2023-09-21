@@ -1,18 +1,27 @@
-name: Upload Datasets
+name: Run Tests
 
-on:
-  workflow_dispatch:
+on: [push]
 
 jobs:
-  upload:
+  test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Upload datasets
-      uses: actions/upload-artifact@v2
-      with:
-        name: my-dataset
-        path: /Users/jocotton/Desktop/references_files
+    - name: Download dataset from Google Drive
+      run: |
+        curl -c ./cookie -s -L "https://drive.google.com/uc?export=download&id=1O6xPLOt7o7G5K1P-GZPA5MC1wDVwN691" > /dev/null
+        curl -Lb ./cookie "https://drive.google.com/uc?export=download&confirm=`awk '/download/ {print $NF}' ./cookie`&id=YOUR_FILE_ID" -o references_files.zip
+        unzip references_files.zip -d /tmp/datasets
+
+    - name: Pull and run Docker container
+      run: |
+        docker pull monkiky/spliceai-lookup-local
+        docker run -d -v /tmp/datasets:/Users/jocotton/Desktop/references_files -p 8080:8080 monkiky/spliceai-lookup-local
+
+    - name: Run tests
+      run: |
+        python3 ./TestingDocker.py spliceai_controlBABY.csv
+
