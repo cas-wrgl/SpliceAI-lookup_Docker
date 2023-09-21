@@ -9,11 +9,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    
+    - name: Ensure no conflicting containers are running
+      run: |
+        docker stop $(docker ps -q --filter ancestor=spliceailookup_local --filter publish=8080) || true
 
     - name: Run Docker container
       run: |
         docker run -d -v /Users/jocotton/Desktop/references_files:/Users/jocotton/Desktop/references_files -p 8080:8080 spliceailookup_local
-
+    
+    - name: Install Python dependencies
+      run: |
+        pip3 install pandas requests json numpy unittest
+    
     - name: Run tests
       run: |
         python3 ./TestingDocker.py spliceai_controlBABY.csv
