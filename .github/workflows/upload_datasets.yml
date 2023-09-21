@@ -18,7 +18,7 @@ jobs:
 
     - name: Pull and run Docker container
       run: |
-        docker pull monkiky/spliceai-lookup-local
+        docker pull monkiky/spliceai-lookup-local:v1.0
         docker run -d -v /tmp/datasets:/Users/jocotton/Desktop/references_files -p 8080:8080 monkiky/spliceai-lookup-local
 
     - name: Run tests
