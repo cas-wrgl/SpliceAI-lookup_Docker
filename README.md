@@ -1,5 +1,41 @@
 
-#### SpliceAI Lookup API
+# SpliceAI Lookup API (Local)
+
+**Description:**
+
+This is a fork from the original SpliceAI-lookup repository, which has been customized to create and implement a local version for our clinical laboratory. Minimal modifications have been made to build and run a Docker container on our server. You can find a copy 
+of this container on [Docker Hub](https://hub.docker.com/r/monkiky/spliceai-lookup-local).
+
+**Additional Files:**
+
+- `Dockerfile`: The Dockerfile used for building the container.
+- `requirements_for_Docker.txt`: This file contains different Python library versions required to make the application work in our environment. The original SpliceAI-lookup is designed to work with CentOS Python 3.6.
+- `TestingDocker.py`: A Python script for testing the container. It uses our control-group variants, which are specified in the `spliceai_control.csv` file.
+
+**Modifications:**
+
+- Some modifications have been made to the `Index.html` file.
+- The reference files have also undergone minor modifications to include transcripts used in the laboratory. Please note that these reference files are located outside the container.
+
+To run this in BIOINF-2
+
+```sh
+docker run -v /home/manuel.dominguez/references_files/:/Users/jocotton/Desktop/references_files
+
+```
+
+The original README.md file below
+
+
+
+
+#### SpliceAI Lookup API (local)
+
+This is a local version implemented in our laboratory. Minimal modifications has been performed to build and a  Docker container in our server.
+
+A copy of this container can be found at 
+
+
 
 This API serves as the backend for [spliceailookup.broadinstitute.org](http://spliceailookup.broadinstitute.org).
 
