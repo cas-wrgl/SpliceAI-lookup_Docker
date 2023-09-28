@@ -29,7 +29,7 @@ The original README.md file below
 
 
 
-#### SpliceAI Lookup API (local)
+# SpliceAI Lookup API (local)
 
 This is a local version implemented in our laboratory. Minimal modifications has been performed to build and a  Docker container in our server.
 
