@@ -20,8 +20,10 @@ of this container on [Docker Hub](https://hub.docker.com/r/monkiky/spliceai-look
 To run this in BIOINF-2
 
 ```sh
-docker run -v /home/manuel.dominguez/references_files/:/Users/jocotton/Desktop/references_files
-
+ docker run -d --restart=always -v /home/manuel.dominguez/reference_files/:/Users/jocotton/Desktop/references_files/ -p 8001:8080  -it spliceailookup_local
+# This is running in the background
+ docker logs -f <run>
+# to follow progress
 ```
 
 The original README.md file below
