@@ -9,7 +9,7 @@ ADD . .
 RUN pip install --upgrade pip
 RUN pip install "setuptools<58" --upgrade
 
-RUN pip install -r requiretments_for_Docker.txt
+RUN pip install -r requirements.txt
 
 # Delete .decode('utf-8')
 RUN sed -i  "242s/.decode('utf-8')//" /usr/local/lib/python3.7/site-packages/keras/models.py
