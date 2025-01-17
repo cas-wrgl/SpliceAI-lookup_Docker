@@ -1,0 +1,10 @@
+services:
+  web:
+    image: spliceai-lookup_docker:v1.0.1
+    ports:
+      - "8001:8080"
+    restart: always
+    volumes:
+      - /mnt/data1/db/spliceai/references_files:/Users/jocotton/Desktop/references_files
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080" ]
