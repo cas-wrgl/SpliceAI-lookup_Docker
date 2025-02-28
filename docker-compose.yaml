@@ -1,6 +1,7 @@
 services:
   web:
-    image: spliceai-lookup_docker:v1.0.1
+    image: spliceai-lookup_docker:${VERSION}
+    build: .
     ports:
       - "8001:8080"
     restart: always
